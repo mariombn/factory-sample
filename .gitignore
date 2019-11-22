@@ -1,0 +1,7 @@
+.idea/
+vendor/
+data/
+db_data_dev/
+config/config.ini
+composer.lock
+composer.phar
