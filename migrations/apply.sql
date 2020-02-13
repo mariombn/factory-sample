@@ -1,8 +1,8 @@
-CREATE DATABASE webjump;
+CREATE DATABASE factory;
 
-USE webjump
+USE factory
 
-CREATE TABLE `webjump`.`produtos` (
+CREATE TABLE `factory`.`produtos` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(250) NOT NULL,
   `sku` VARCHAR(20),
@@ -12,18 +12,18 @@ CREATE TABLE `webjump`.`produtos` (
   PRIMARY KEY (`id`)
 );
 
-CREATE TABLE `webjump`.`categorias` (
+CREATE TABLE `factory`.`categorias` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(250) NOT NULL,
   PRIMARY KEY (`id`)
 );
 
-CREATE TABLE `webjump`.`produto_categoria` (
+CREATE TABLE `factory`.`produto_categoria` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `produto_id` INT UNSIGNED NOT NULL,
   `categoria_id` INT UNSIGNED NOT NULL,
   PRIMARY KEY (`id`)
 );
 
-ALTER TABLE `webjump`.`produto_categoria` ADD CONSTRAINT `fk_produto_id` FOREIGN KEY ( `produto_id` ) REFERENCES `produtos` (`id`);
-ALTER TABLE `webjump`.`produto_categoria` ADD CONSTRAINT `fk_categoria_id` FOREIGN KEY ( `categoria_id` ) REFERENCES `categorias` (`id`);
+ALTER TABLE `factory`.`produto_categoria` ADD CONSTRAINT `fk_produto_id` FOREIGN KEY ( `produto_id` ) REFERENCES `produtos` (`id`);
+ALTER TABLE `factory`.`produto_categoria` ADD CONSTRAINT `fk_categoria_id` FOREIGN KEY ( `categoria_id` ) REFERENCES `categorias` (`id`);
