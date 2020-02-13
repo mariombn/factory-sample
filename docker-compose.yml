@@ -11,9 +11,9 @@ services:
       - ./data/db:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: webjump
-      MYSQL_USER: webjump
-      MYSQL_PASSWORD: webjump
+      MYSQL_DATABASE: factory
+      MYSQL_USER: factory
+      MYSQL_PASSWORD: factory
 
   data:
     image: debian:jessie
@@ -23,7 +23,7 @@ services:
 
   webserver:
     image: nginx:alpine
-    container_name: webjump-webserver
+    container_name: factory-webserver
     working_dir: /application
     volumes:
       - .:/application
@@ -33,7 +33,7 @@ services:
 
   php-fpm:
     build: phpdocker/php-fpm
-    container_name: webjump-php-fpm
+    container_name: factory-php-fpm
     working_dir: /application
     volumes:
       - .:/application
